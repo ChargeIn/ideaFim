@@ -1,0 +1,43 @@
+<idea-plugin>
+  <extensions defaultExtensionNs="com.intellij">
+    <applicationService serviceImplementation="com.flop.idea.fim.group.MotionGroup"/>
+    <applicationService serviceImplementation="com.flop.idea.fim.group.ChangeGroup"
+                        serviceInterface="com.flop.idea.fim.api.FimChangeGroup"/>
+    <applicationService serviceImplementation="com.flop.idea.fim.group.CommandGroup"/>
+    <applicationService serviceImplementation="com.flop.idea.fim.group.MarkGroup"/>
+    <applicationService serviceImplementation="com.flop.idea.fim.group.RegisterGroup"
+                        serviceInterface="com.flop.idea.fim.register.FimRegisterGroup"/>
+    <applicationService serviceImplementation="com.flop.idea.fim.group.XMLGroup"/>
+    <applicationService serviceImplementation="com.flop.idea.fim.group.FileGroup"/>
+    <applicationService serviceImplementation="com.flop.idea.fim.group.SearchGroup"/>
+    <applicationService serviceImplementation="com.flop.idea.fim.group.ProcessGroup"
+                        serviceInterface="com.flop.idea.fim.api.FimProcessGroup"/>
+    <applicationService serviceImplementation="com.flop.idea.fim.group.MacroGroup"/>
+    <applicationService serviceImplementation="com.flop.idea.fim.group.DigraphGroup"
+                        serviceInterface="com.flop.idea.fim.api.FimDigraphGroup"/>
+    <applicationService serviceImplementation="com.flop.idea.fim.group.HistoryGroup"/>
+    <applicationService serviceImplementation="com.flop.idea.fim.group.KeyGroup"
+                        serviceInterface="com.flop.idea.fim.api.FimKeyGroup"/>
+    <applicationService serviceImplementation="com.flop.idea.fim.group.WindowGroup"/>
+    <applicationService serviceImplementation="com.flop.idea.fim.group.TabServiceImpl"
+                        serviceInterface="com.flop.idea.fim.group.TabService"/>
+    <applicationService serviceImplementation="com.flop.idea.fim.group.EditorGroup"/>
+    <applicationService serviceImplementation="com.flop.idea.fim.group.visual.VisualMotionGroup"
+                        serviceInterface="com.flop.idea.fim.api.FimVisualMotionGroup"/>
+    <applicationService serviceImplementation="com.flop.idea.fim.group.copy.YankGroup"/>
+    <applicationService serviceImplementation="com.flop.idea.fim.group.copy.PutGroup"/>
+    <applicationService serviceImplementation="com.flop.idea.fim.fimscript.services.IjVariableService"
+                        serviceInterface="com.flop.idea.fim.fimscript.services.VariableService"/>
+    <applicationService serviceImplementation="com.flop.idea.fim.group.IjStatisticsService"
+                        serviceInterface="com.flop.idea.fim.api.FimStatistics"/>
+
+    <applicationService serviceImplementation="com.flop.idea.fim.fimscript.services.IjFimOptionService"
+                        serviceInterface="com.flop.idea.fim.fimscript.services.OptionService"/>
+    <applicationService serviceImplementation="com.flop.idea.fim.group.IjFimStorageService"
+                        serviceInterface="com.flop.idea.fim.api.FimStorageService"/>
+    <applicationService serviceImplementation="com.flop.idea.fim.group.IjFimSystemInfoService"
+                        serviceInterface="com.flop.idea.fim.api.SystemInfoService"/>
+
+    <applicationService serviceImplementation="com.flop.idea.fim.group.NotificationService"/>
+  </extensions>
+</idea-plugin>

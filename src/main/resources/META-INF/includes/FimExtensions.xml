@@ -1,0 +1,133 @@
+<idea-plugin>
+  <extensions defaultExtensionNs="IdeaVIM">
+    <fimExtension implementation="com.flop.idea.fim.extension.surround.FimSurroundExtension" name="surround">
+      <aliases>
+        <alias name="https://github.com/tpope/fim-surround"/>
+        <alias name="tpope/fim-surround"/>
+        <alias name="fim-surround"/>
+        <alias name="https://www.fim.org/scripts/script.php?script_id=1697"/>
+      </aliases>
+    </fimExtension>
+
+    <fimExtension implementation="com.flop.idea.fim.extension.multiplecursors.FimMultipleCursorsExtension"
+                  name="multiple-cursors">
+      <aliases>
+        <alias name="https://github.com/terryma/fim-multiple-cursors"/>
+        <alias name="terryma/fim-multiple-cursors"/>
+        <alias name="fim-multiple-cursors"/>
+      </aliases>
+    </fimExtension>
+
+    <fimExtension implementation="com.flop.idea.fim.extension.commentary.CommentaryExtension" name="commentary">
+      <aliases>
+        <alias name="https://github.com/tpope/fim-commentary"/>
+        <alias name="tpope/fim-commentary"/>
+        <alias name="fim-commentary"/>
+        <alias name="https://www.fim.org/scripts/script.php?script_id=3695"/>
+        <alias name="https://github.com/tomtom/tcomment_fim"/>
+        <alias name="tomtom/tcomment_fim"/>
+        <alias name="tcomment_fim"/>
+        <alias name="https://www.fim.org/scripts/script.php?script_id=1173"/>
+      </aliases>
+    </fimExtension>
+
+    <fimExtension implementation="com.flop.idea.fim.extension.textobjentire.FimTextObjEntireExtension"
+                  name="textobj-entire">
+      <aliases>
+        <alias name="https://github.com/kana/fim-textobj-entire"/>
+        <alias name="kana/fim-textobj-entire"/>
+        <alias name="fim-textobj-entire"/>
+        <alias name="https://www.fim.org/scripts/script.php?script_id=2610"/>
+      </aliases>
+    </fimExtension>
+
+    <fimExtension implementation="com.flop.idea.fim.extension.argtextobj.FimArgTextObjExtension"
+                  name="argtextobj">
+      <aliases>
+        <alias name="https://github.com/fim-scripts/argtextobj.fim"/>
+        <alias name="fim-scripts/argtextobj.fim"/>
+        <alias name="argtextobj.fim"/>
+        <alias name="https://www.fim.org/scripts/script.php?script_id=2699"/>
+      </aliases>
+    </fimExtension>
+
+    <fimExtension implementation="com.flop.idea.fim.extension.replacewithregister.ReplaceWithRegister"
+                  name="ReplaceWithRegister">
+      <aliases>
+        <alias name="https://github.com/fim-scripts/ReplaceWithRegister"/>
+        <alias name="fim-scripts/ReplaceWithRegister"/>
+        <alias name="ReplaceWithRegister"/>
+        <alias name="https://github.com/inkarkat/fim-ReplaceWithRegister"/>
+        <alias name="inkarkat/fim-ReplaceWithRegister"/>
+        <alias name="fim-ReplaceWithRegister"/>
+        <alias name="https://www.fim.org/scripts/script.php?script_id=2703"/>
+      </aliases>
+    </fimExtension>
+
+    <fimExtension implementation="com.flop.idea.fim.extension.exchange.FimExchangeExtension" name="exchange">
+      <aliases>
+        <alias name="https://github.com/tommcdo/fim-exchange"/>
+        <alias name="tommcdo/fim-exchange"/>
+        <alias name="fim-exchange"/>
+      </aliases>
+    </fimExtension>
+
+    <fimExtension implementation="com.flop.idea.fim.extension.highlightedyank.FimHighlightedYank"
+                  name="highlightedyank">
+      <aliases>
+        <alias name="https://github.com/machakann/fim-highlightedyank"/>
+        <alias name="machakann/fim-highlightedyank"/>
+        <alias name="fim-highlightedyank"/>
+      </aliases>
+    </fimExtension>
+
+    <fimExtension implementation="com.flop.idea.fim.extension.nerdtree.NerdTree" name="NERDTree">
+      <aliases>
+        <alias name="https://github.com/preserfim/nerdtree"/>
+        <alias name="preserfim/nerdtree"/>
+        <alias name="https://github.com/scrooloose/nerdtree"/>
+        <alias name="scrooloose/nerdtree"/>
+        <alias name="nerdtree"/>
+      </aliases>
+    </fimExtension>
+
+    <fimExtension implementation="com.flop.idea.fim.extension.paragraphmotion.ParagraphMotion" name="fim-paragraph-motion">
+      <aliases>
+        <alias name="https://github.com/dbakker/fim-paragraph-motion"/>
+        <alias name="dbakker/fim-paragraph-motion"/>
+        <alias name="fim-paragraph-motion"/>
+        <alias name="https://github.com/fim-scripts/Improved-paragraph-motion"/>
+        <alias name="fim-scripts/Improved-paragraph-motion"/>
+        <alias name="Improved-paragraph-motion"/>
+      </aliases>
+    </fimExtension>
+
+    <fimExtension implementation="com.flop.idea.fim.extension.textobjindent.FimIndentObject" name="textobj-indent">
+      <aliases>
+        <alias name="https://github.com/michaeljsmith/fim-indent-object"/>
+        <alias name="michaeljsmith/fim-indent-object"/>
+        <alias name="fim-indent-object"/>
+      </aliases>
+    </fimExtension>
+
+    <fimExtension implementation="com.flop.idea.fim.extension.matchit.Matchit" name="matchit">
+      <aliases>
+        <alias name="fim-matchit"/>
+        <alias name="chrisbra/matchit"/>
+      </aliases>
+    </fimExtension>
+  </extensions>
+
+  <!--  IdeaFim extensions-->
+  <extensions defaultExtensionNs="com.intellij">
+    <projectService serviceImplementation="com.flop.idea.fim.extension.nerdtree.NerdTree$NerdDispatcher"/>
+  </extensions>
+  <projectListeners>
+    <listener class="com.flop.idea.fim.extension.nerdtree.NerdTree$ProjectViewListener"
+              topic="com.intellij.openapi.wm.ex.ToolWindowManagerListener"/>
+  </projectListeners>
+  <applicationListeners>
+    <listener class="com.flop.idea.fim.extension.nerdtree.NerdTree$NerdProjectListener"
+              topic="com.intellij.openapi.project.ProjectManagerListener"/>
+  </applicationListeners>
+</idea-plugin>

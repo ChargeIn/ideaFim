@@ -1,0 +1,18 @@
+<idea-plugin>
+  <extensions defaultExtensionNs="IdeaVIM">
+    <fimLibraryFunction implementation="com.flop.idea.fim.fimscript.model.functions.handlers.AbsFunctionHandler" name="abs"/>
+    <fimLibraryFunction implementation="com.flop.idea.fim.fimscript.model.functions.handlers.ColFunctionHandler" name="col"/>
+    <fimLibraryFunction implementation="com.flop.idea.fim.fimscript.model.functions.handlers.EmptyFunctionHandler" name="empty"/>
+    <fimLibraryFunction implementation="com.flop.idea.fim.fimscript.model.functions.handlers.LineFunctionHandler" name="line"/>
+    <fimLibraryFunction implementation="com.flop.idea.fim.fimscript.model.functions.handlers.SinFunctionHandler" name="sin"/>
+    <fimLibraryFunction implementation="com.flop.idea.fim.fimscript.model.functions.handlers.ExistsFunctionHandler" name="exists"/>
+    <fimLibraryFunction implementation="com.flop.idea.fim.fimscript.model.functions.handlers.LenFunctionHandler" name="len"/>
+    <fimLibraryFunction implementation="com.flop.idea.fim.fimscript.model.functions.handlers.FunctionFunctionHandler" name="function"/>
+    <fimLibraryFunction implementation="com.flop.idea.fim.fimscript.model.functions.handlers.FuncrefFunctionHandler" name="funcref"/>
+    <fimLibraryFunction implementation="com.flop.idea.fim.fimscript.model.functions.handlers.HasFunctionHandler" name="has"/>
+    <fimLibraryFunction implementation="com.flop.idea.fim.fimscript.model.functions.handlers.SubmatchFunctionHandler" name="submatch"/>
+    <fimLibraryFunction implementation="com.flop.idea.fim.fimscript.model.functions.handlers.TolowerFunctionHandler" name="tolower"/>
+    <fimLibraryFunction implementation="com.flop.idea.fim.fimscript.model.functions.handlers.ToupperFunctionHandler" name="toupper"/>
+    <fimLibraryFunction implementation="com.flop.idea.fim.fimscript.model.functions.handlers.JoinFunctionHandler" name="join"/>
+  </extensions>
+</idea-plugin>

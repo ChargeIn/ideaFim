@@ -1,0 +1,118 @@
+<idea-plugin url="https://plugins.jetbrains.com/plugin/TODO" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <name>IdeaFim</name>
+  <id>IdeaFIM</id>
+  <change-notes>
+    TODO
+  </change-notes>
+  <description><![CDATA[
+  TODO
+      <p>Fim engine for JetBrains IDEs</p>
+      <br/>
+      <p>IdeaFim is a spinoff of the IdeaVim plugin with a more native shortcut support for beginners, it supports
+      most features of the origin plugin and can be configured via ~/.ideafimrc file</p>
+      <br/>
+    ]]></description>
+  <version>SNAPSHOT</version>
+  <vendor>JetBrains</vendor>
+
+  <!-- Please search for "[VERSION UPDATE]" in project in case you update the since-build version -->
+  <!-- Check for [Version Update] tag in YouTrack as well -->
+  <!-- Also, please update the value in build.gradle.kts file-->
+  <idea-version since-build="223"/>
+
+  <!-- Mark the plugin as compatible with RubyMine and other products based on the IntelliJ platform (including CWM) -->
+  <depends>com.intellij.modules.platform</depends>
+  <resource-bundle>messages.IdeaFimBundle</resource-bundle>
+
+  <!-- IDE-Specific configurations -->
+  <!--suppress PluginXmlValidity -->
+  <depends optional="true" config-file="ides/ideafim-withRider.xml">com.intellij.modules.rider</depends>
+  <!--suppress PluginXmlValidity -->
+  <depends optional="true" config-file="ides/ideafim-withAppCode.xml">com.intellij.modules.appcode</depends>
+  <depends optional="true" config-file="META-INF/ideafim-withAceJump.xml">AceJump</depends>
+
+  <applicationListeners>
+    <listener class="com.flop.idea.fim.PyNotebooksCloseWorkaround"
+              topic="com.intellij.openapi.project.ProjectManagerListener"/>
+  </applicationListeners>
+
+  <application-components>
+    <component>
+      <implementation-class>com.flop.idea.fim.DynamicLoaderStopper</implementation-class>
+    </component>
+  </application-components>
+
+  <extensionPoints>
+    <extensionPoint name="fimExtension" beanClass="com.flop.idea.fim.extension.ExtensionBeanClass" dynamic="true">
+      <with attribute="implementation" implements="com.flop.idea.fim.extension.FimExtension"/>
+
+    </extensionPoint>
+    <extensionPoint name="fimLibraryFunction"
+                    beanClass="com.flop.idea.fim.fimscript.model.functions.FunctionBeanClass" dynamic="true">
+      <with attribute="implementation" implements="com.flop.idea.fim.fimscript.model.functions.FunctionHandler"/>
+    </extensionPoint>
+    <!--    For internal use only -->
+    <extensionPoint name="fimAction" beanClass="com.flop.idea.fim.handler.ActionBeanClass" dynamic="true">
+      <with attribute="implementation" implements="com.flop.idea.fim.handler.EditorActionHandlerBase"/>
+    </extensionPoint>
+  </extensionPoints>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <applicationConfigurable groupId="editor" instance="com.flop.idea.fim.ui.FimEmulationConfigurable"/>
+    <projectService serviceImplementation="com.flop.idea.fim.group.NotificationService"/>
+    <projectService serviceImplementation="com.flop.idea.fim.group.LastTabService"/>
+    <statusBarWidgetFactory implementation="com.flop.idea.fim.ui.StatusBarIconFactory"/>
+    <statusBarWidgetFactory implementation="com.flop.idea.fim.ui.ShowCmdStatusBarWidgetFactory" order="first"/>
+
+    <applicationService serviceImplementation="com.flop.idea.fim.FimPlugin"/>
+
+    <!-- Initialise as early as possible so that we're ready to edit quickly. This is especially important for Rider,
+         which (at least for 2020.1) has some long running activities that block other startup extensions. None of the
+         core platform activities have IDs, so we can't use "before ID". We have to use "first" -->
+    <postStartupActivity implementation="com.flop.idea.fim.PluginStartup" order="first"/>
+
+    <editorFloatingToolbarProvider implementation="com.flop.idea.fim.ui.ReloadFloatingToolbar"/>
+
+    <actionPromoter implementation="com.flop.idea.fim.key.FimActionsPromoter" order="last"/>
+
+    <spellchecker.bundledDictionaryProvider implementation="com.flop.idea.fim.FimBundledDictionaryProvider"/>
+
+    <notificationGroup displayType="STICKY_BALLOON" id="ideafim-sticky"/>
+
+    <statistics.applicationUsagesCollector implementation="com.flop.idea.fim.statistic.PluginState"/>
+    <statistics.applicationUsagesCollector implementation="com.flop.idea.fim.statistic.OptionsState"/>
+    <statistics.applicationUsagesCollector implementation="com.flop.idea.fim.statistic.FimscriptState"/>
+    <statistics.applicationUsagesCollector implementation="com.flop.idea.fim.statistic.ShortcutConflictState"/>
+
+    <statistics.counterUsagesCollector implementationClass="com.flop.idea.fim.statistic.ActionTracker"/>
+  </extensions>
+
+  <xi:include href="/META-INF/includes/ApplicationServices.xml" xpointer="xpointer(/idea-plugin/*)"/>
+  <xi:include href="/META-INF/includes/FimActions.xml" xpointer="xpointer(/idea-plugin/*)"/>
+  <xi:include href="/META-INF/includes/FimExtensions.xml" xpointer="xpointer(/idea-plugin/*)"/>
+  <xi:include href="/META-INF/includes/FimListeners.xml" xpointer="xpointer(/idea-plugin/*)"/>
+  <xi:include href="/META-INF/includes/FimLibraryFunctions.xml" xpointer="xpointer(/idea-plugin/*)"/>
+
+  <actions resource-bundle="messages.IdeaFimBundle">
+    <action id="FimPluginToggle" class="com.flop.idea.fim.action.FimPluginToggleAction">
+      <add-to-group group-id="ToolsMenu" anchor="last"/>
+    </action>
+
+    <!-- Internal -->
+    <!--suppress PluginXmlI18n -->
+    <action id="FimInternalAddBlockInlays" class="com.flop.idea.fim.action.internal.AddBlockInlaysAction" text="Add Test Block Inlays | IdeaFim Internal" internal="true"/>
+    <!--suppress PluginXmlI18n -->
+    <action id="FimInternalAddInlineInlays" class="com.flop.idea.fim.action.internal.AddInlineInlaysAction" text="Add Test Inline Inlays | IdeaFim Internal" internal="true"/>
+
+    <action id="FimShortcutKeyAction" class="com.flop.idea.fim.action.FimShortcutKeyAction"/>
+    <action id="FimActions" class="com.flop.idea.fim.ui.FimActions"/>
+
+    <group id="IdeaFim.ReloadFimRc.group" class="com.flop.idea.fim.ui.ReloadFloatingToolbarActionGroup">
+      <action id="IdeaFim.ReloadFimRc.reload" class="com.flop.idea.fim.ui.ReloadFimRc"
+              use-shortcut-of="ExternalSystem.ProjectRefreshAction">
+      </action>
+    </group>
+
+    <action id="FimFindActionIdAction" class="com.flop.idea.fim.listener.FindActionIdAction"/>
+  </actions>
+</idea-plugin>

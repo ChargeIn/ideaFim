@@ -1,0 +1,30 @@
+<idea-plugin>
+  <applicationListeners>
+    <listener class="com.flop.idea.fim.ui.ex.ExEntryPanel$LafListener"
+              topic="com.intellij.ide.ui.LafManagerListener"/>
+    <listener class="com.flop.idea.fim.extension.highlightedyank.HighlightColorResetter"
+              topic="com.intellij.ide.ui.LafManagerListener"/>
+  </applicationListeners>
+  <projectListeners>
+    <listener class="com.flop.idea.fim.ui.ExOutputPanel$LafListener"
+              topic="com.intellij.ide.ui.LafManagerListener"/>
+
+    <listener class="com.flop.idea.fim.listener.FimListenerManager$FimFileEditorManagerListener"
+              topic="com.intellij.openapi.fileEditor.FileEditorManagerListener"/>
+
+    <listener class="com.flop.idea.fim.listener.IdeaSpecifics$FimActionListener"
+              topic="com.intellij.openapi.actionSystem.ex.AnActionListener"/>
+
+    <listener class="com.flop.idea.fim.listener.IdeaSpecifics$FimTemplateManagerListener"
+              topic="com.intellij.codeInsight.template.TemplateManagerListener"/>
+
+    <listener class="com.flop.idea.fim.group.MarkGroup$FimBookmarksListener"
+              topic="com.intellij.ide.bookmark.BookmarksListener"/>
+
+    <listener class="com.flop.idea.fim.listener.IdeaSpecifics$FimFindModelListener"
+              topic="com.intellij.find.FindModelListener"/>
+
+    <listener class="com.flop.idea.fim.listener.IdeaSpecifics$LookupTopicListener"
+              topic="com.intellij.codeInsight.lookup.LookupManagerListener"/>
+  </projectListeners>
+</idea-plugin>

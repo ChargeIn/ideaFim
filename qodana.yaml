@@ -1,0 +1,25 @@
+version: 1.0
+profile:
+  name: Qodana
+include:
+  - name: CheckDependencyLicenses
+exclude:
+  - name: MoveVariableDeclarationIntoWhen
+  - name: PluginXmlValidity
+  - name: RedundantThrows
+  - name: SuperTearDownInFinally
+  - name: UnusedReturnValue
+  - name: All
+    paths:
+      - build.gradle.kts
+      - gradle/wrapper/gradle-wrapper.properties
+      - src/main/resources/icons/youtrack.svg
+      - src/main/java/com/flop/idea/fim/helper/SearchHelper.java
+      - src/main/java/com/flop/idea/fim/regexp/RegExp.kt
+      - src/test/java/org/jetbrains/plugins/ideafim/propertybased/samples/JavaText.kt
+      - src/test/java/org/jetbrains/plugins/ideafim/propertybased/samples/LoremText.kt
+      - src/test/java/org/jetbrains/plugins/ideafim/propertybased/samples/SimpleText.kt
+      - src/main/java/com/flop/idea/fim/fimscript/parser/generated/FimscriptListener.java
+      - src/main/java/com/flop/idea/fim/fimscript/parser/generated/FimscriptLexer.java
+      - src/main/java/com/flop/idea/fim/fimscript/parser/generated/FimscriptParser.java
+      - src/main/java/com/flop/idea/fim/fimscript/parser/generated/FimscriptVisitor.java

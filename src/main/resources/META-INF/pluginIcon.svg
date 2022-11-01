@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <linearGradient id="ideafim_plugin-a" x1="-6.748%" x2="47.286%" y1="33.61%" y2="85.907%">
+      <stop offset="0%" stop-color="#3BEA62"/>
+      <stop offset="100%" stop-color="#087CFA"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#ideafim_plugin-a)" fill-rule="evenodd" points="4 0 38 0 36 10 14 10 11 40 0 40"/>
+  <polygon fill="url(#ideafim_plugin-a)" fill-rule="evenodd" points="17 16 32 16 29 24 16 24"/>
+</svg>

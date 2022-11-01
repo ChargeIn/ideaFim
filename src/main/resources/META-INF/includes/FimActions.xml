@@ -1,0 +1,366 @@
+<idea-plugin>
+  <extensions defaultExtensionNs="IdeaFIM">
+    <!-- Mode -->
+    <fimAction implementation="com.flop.idea.fim.action.change.insert.InsertExitModeAction" mappingModes="I" keys="«Esc»"/>
+    <fimAction implementation="com.flop.idea.fim.action.change.insert.InsertBeforeCursorAction" mappingModes="N" keys="r"/>
+
+    <!-- Movement -->
+    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionWordLeftAction" mappingModes="NXO" keys="a"/>
+    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionWordRightAction" mappingModes="NXO" keys="d"/>
+    <fimAction implementation="com.flop.idea.fim.action.motion.updown.MotionUpAction" mappingModes="NXO" keys="w"/>
+    <fimAction implementation="com.flop.idea.fim.action.motion.updown.MotionDownAction" mappingModes="NXO" keys="s"/>
+
+    <!--    &lt;!&ndash; Motions &ndash;&gt;-->
+<!--    &lt;!&ndash; Left/Right &ndash;&gt;-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionColumnAction" mappingModes="NXO" keys="|"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionFirstColumnAction" mappingModes="NXO" keys="0"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionFirstColumnInsertModeAction" mappingModes="I" keys="«Home»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionFirstScreenColumnAction" mappingModes="NXO" keys="g0,g«Home»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionFirstNonSpaceAction" mappingModes="NXO" keys="^"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionFirstScreenNonSpaceAction" mappingModes="NXO" keys="g^"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionLastColumnAction" mappingModes="NXO" keys="$"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionLastColumnInsertAction" mappingModes="I" keys="«End»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionLastScreenColumnAction" mappingModes="NXO" keys="g$,g«End»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionLastMatchCharAction" mappingModes="NXO" keys=";"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionLastMatchCharReverseAction" mappingModes="NXO" keys="«COMMA»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionLastNonSpaceAction" mappingModes="NXO" keys="g_"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionLeftAction" mappingModes="NXO" keys="h"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionLeftInsertModeAction" mappingModes="I"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionLeftWrapAction" mappingModes="NXO" keys="«BS»,«C-H»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionLeftMatchCharAction" mappingModes="NXO" keys="F"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionLeftTillMatchCharAction" mappingModes="NXO" keys="T"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.macro.MotionMiddleColumnAction" mappingModes="NXO" keys="gm"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionRightAction" mappingModes="NXO" keys="l"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionRightInsertAction" mappingModes="I"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionRightWrapAction" mappingModes="NXO" keys=" "/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionRightMatchCharAction" mappingModes="NXO" keys="f"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionRightTillMatchCharAction" mappingModes="NXO" keys="t"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionHomeAction" mappingModes="NV" keys="«Home»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionShiftHomeAction" mappingModes="INV" keys="«S-Home»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionEndAction" mappingModes="NVO" keys="«End»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionShiftEndAction" mappingModes="INV" keys="«S-End»"/>-->
+<!--    &lt;!&ndash; Up/Down &ndash;&gt;-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.updown.MotionDownAction" mappingModes="NXO" keys="j"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.updown.MotionDownCtrlNAction" mappingModes="NXO" keys="«C-N»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.updown.MotionDownNotLineWiseAction" mappingModes="NXO" keys="gj,g«Down»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.updown.MotionDownFirstNonSpaceAction" mappingModes="NXO" keys="+,«C-M»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.updown.EnterNormalAction" mappingModes="NXO" keys="«CR»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.updown.MotionDownLess1FirstNonSpaceAction" mappingModes="NXO" keys="_"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.updown.MotionGotoLineFirstAction" mappingModes="NXO" keys="gg,«C-Home»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.updown.MotionGotoLineFirstInsertAction" mappingModes="I" keys="«C-Home»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.updown.MotionGotoLineLastAction" mappingModes="NXO" keys="G"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.updown.MotionGotoLineLastEndAction" mappingModes="NXO" keys="«C-End»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.updown.MotionGotoLineLastEndInsertAction" mappingModes="I" keys="«C-End»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.updown.MotionPercentOrMatchAction" mappingModes="NXO" keys="%"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.updown.MotionUpAction" mappingModes="NXO" keys="k"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.updown.MotionUpCtrlPAction" mappingModes="NXO" keys="«C-P»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.updown.MotionUpNotLineWiseAction" mappingModes="NXO" keys="gk,g«Up»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.updown.MotionUpFirstNonSpaceAction" mappingModes="NXO" keys="-"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.updown.MotionArrowDownAction" mappingModes="NVO"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.updown.MotionArrowUpAction" mappingModes="NVO"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionArrowLeftAction" mappingModes="NXO"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionArrowRightAction" mappingModes="NXO"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.window.LookupDownAction" mappingModes="I" keys="«C-N»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.window.LookupUpAction" mappingModes="I" keys="«C-P»"/>-->
+<!--    &lt;!&ndash; Text &ndash;&gt;-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionCamelEndLeftAction" mappingModes="NXO" keys="]b"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionCamelEndRightAction" mappingModes="NXO" keys="]w"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionCamelLeftAction" mappingModes="NXO" keys="[b"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionCamelRightAction" mappingModes="NXO" keys="[w"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionNthCharacterAction" mappingModes="NXO" keys="go"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionWordEndLeftAction" mappingModes="NXO" keys="ge"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionBigWordEndLeftAction" mappingModes="NXO" keys="gE"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionWordEndRightAction" mappingModes="NXO" keys="e"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionBigWordEndRightAction" mappingModes="NXO" keys="E"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionWordLeftAction" mappingModes="NXO" keys="b"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionWordLeftInsertAction" mappingModes="I"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionBigWordLeftAction" mappingModes="NXO" keys="B,«C-Left»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionWordRightAction" mappingModes="NXO" keys="w"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionWordRightInsertAction" mappingModes="I"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionBigWordRightAction" mappingModes="NXO" keys="W,«C-Right»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionSentenceNextStartAction" mappingModes="NXO" keys=")"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionSentencePreviousStartAction" mappingModes="NXO" keys="("/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionSentenceNextEndAction" mappingModes="NXO" keys="g)"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionSentencePreviousEndAction" mappingModes="NXO" keys="g("/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionParagraphNextAction" mappingModes="NXO" keys="}"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionParagraphPreviousAction" mappingModes="NXO" keys="{"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionUnmatchedBraceCloseAction" mappingModes="NXO" keys="]}"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionUnmatchedBraceOpenAction" mappingModes="NXO" keys="[{"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionUnmatchedParenCloseAction" mappingModes="NXO" keys="])"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionUnmatchedParenOpenAction" mappingModes="NXO" keys="[("/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionSectionBackwardEndAction" mappingModes="NXO" keys="[]"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionSectionBackwardStartAction" mappingModes="NXO" keys="[["/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionSectionForwardStartAction" mappingModes="NXO" keys="]]"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionSectionForwardEndAction" mappingModes="NXO" keys="]["/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionMethodPreviousEndAction" mappingModes="NXO" keys="[M"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionMethodPreviousStartAction" mappingModes="NXO" keys="[m"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionMethodNextEndAction" mappingModes="NXO" keys="]M"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.text.MotionMethodNextStartAction" mappingModes="NXO" keys="]m"/>-->
+<!--    &lt;!&ndash; Text Objects &ndash;&gt;-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.object.MotionOuterWordAction" mappingModes="XO" keys="aw"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.object.MotionOuterBigWordAction" mappingModes="XO" keys="aW"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.object.MotionInnerWordAction" mappingModes="XO" keys="iw"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.object.MotionInnerBigWordAction" mappingModes="XO" keys="iW"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.object.MotionInnerBlockAngleAction" mappingModes="XO" keys="i>,i&lt;"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.object.MotionInnerBlockBraceAction" mappingModes="XO" keys="iB,i{,i}"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.object.MotionInnerBlockBracketAction" mappingModes="XO" keys="i[,i]"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.object.MotionInnerBlockParenAction" mappingModes="XO" keys="ib,i(,i)"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.object.MotionInnerBlockDoubleQuoteAction" mappingModes="XO" keys='i"'/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.object.MotionInnerBlockSingleQuoteAction" mappingModes="XO" keys="i'"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.object.MotionInnerBlockBackQuoteAction" mappingModes="XO" keys="i`"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.object.MotionInnerBlockTagAction" mappingModes="XO" keys="it"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.object.MotionOuterBlockAngleAction" mappingModes="XO" keys="a&lt;,a>"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.object.MotionOuterBlockBraceAction" mappingModes="XO" keys="aB,a{,a}"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.object.MotionOuterBlockBracketAction" mappingModes="XO" keys="a[,a]"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.object.MotionOuterBlockParenAction" mappingModes="XO" keys="ab,a(,a)"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.object.MotionOuterBlockDoubleQuoteAction" mappingModes="XO" keys='a"'/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.object.MotionOuterBlockSingleQuoteAction" mappingModes="XO" keys="a'"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.object.MotionOuterBlockBackQuoteAction" mappingModes="XO" keys="a`"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.object.MotionOuterBlockTagAction" mappingModes="XO" keys="at"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.object.MotionInnerParagraphAction" mappingModes="XO" keys="ip"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.object.MotionOuterParagraphAction" mappingModes="XO" keys="ap"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.object.MotionInnerSentenceAction" mappingModes="XO" keys="is"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.object.MotionOuterSentenceAction" mappingModes="XO" keys="as"/>-->
+<!--    &lt;!&ndash; Marks &ndash;&gt;-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.mark.MotionMarkAction" mappingModes="NX" keys="m"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.mark.MotionGotoFileMarkAction" mappingModes="XO" keys="`"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.mark.MotionGotoFileMarkNoSaveJumpAction" mappingModes="XO" keys="g`"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.mark.MotionGotoFileMarkLineAction" mappingModes="XO" keys="'"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.mark.MotionGotoFileMarkLineNoSaveJumpAction" mappingModes="XO" keys="g'"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.mark.MotionGotoMarkAction" mappingModes="N" keys="`"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.mark.MotionGotoMarkNoSaveJumpAction" mappingModes="N" keys="g`"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.mark.MotionGotoMarkLineAction" mappingModes="N" keys="'"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.mark.MotionGotoMarkLineNoSaveJumpAction" mappingModes="N" keys="g'"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.mark.MotionJumpNextAction" mappingModes="N" keys="«C-I»,«Tab»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.mark.MotionJumpPreviousAction" mappingModes="N" keys="«C-O»,«C-T»"/>-->
+<!--    &lt;!&ndash; Screen &ndash;&gt;-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.screen.MotionFirstScreenLineAction" mappingModes="NX" keys="H"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.screen.MotionOpPendingFirstScreenLineAction" mappingModes="O" keys="H"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.screen.MotionLastScreenLineAction" mappingModes="NX" keys="L"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.screen.MotionOpPendingLastScreenLineAction" mappingModes="O" keys="L"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.screen.MotionMiddleScreenLineAction" mappingModes="NXO" keys="M"/>-->
+<!--    &lt;!&ndash; Scroll &ndash;&gt;-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.scroll.MotionScrollFirstScreenLinePageStartAction" mappingModes="NXO" keys="z+"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.scroll.MotionScrollFirstScreenLineStartAction" mappingModes="NXO" keys="z«CR»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.scroll.MotionScrollFirstScreenLineAction" mappingModes="NXO" keys="zt"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.scroll.MotionScrollHalfPageDownAction" mappingModes="NXO" keys="«C-D»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.scroll.MotionScrollHalfPageUpAction" mappingModes="NXO" keys="«C-U»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.scroll.MotionScrollLastScreenLineAction" mappingModes="NXO" keys="zb"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.scroll.MotionScrollLastScreenLinePageStartAction" mappingModes="NXO" keys="z^"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.scroll.MotionScrollLastScreenLineStartAction" mappingModes="NXO" keys="z-"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.scroll.MotionScrollLineDownAction" mappingModes="NXO" keys="«C-E»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.scroll.MotionScrollLineUpAction" mappingModes="NXO" keys="«C-Y»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.scroll.MotionScrollMiddleScreenLineAction" mappingModes="NXO" keys="zz"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.scroll.MotionScrollMiddleScreenLineStartAction" mappingModes="NXO" keys="z."/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.scroll.MotionScrollPageDownAction" mappingModes="NXO" keys="«C-F»,«PageDown»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.scroll.MotionScrollPageDownInsertModeAction" mappingModes="I"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.scroll.MotionScrollPageUpAction" mappingModes="NXO" keys="«C-B»,«PageUp»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.scroll.MotionScrollPageUpInsertModeAction" mappingModes="I"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.scroll.MotionScrollFirstScreenColumnAction" mappingModes="NXO" keys="zs"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.scroll.MotionScrollLastScreenColumnAction" mappingModes="NXO" keys="ze"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.scroll.MotionScrollColumnLeftAction" mappingModes="NXO" keys="zl,z«Right»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.scroll.MotionScrollColumnRightAction" mappingModes="NXO" keys="zh,z«Left»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.scroll.MotionScrollHalfWidthLeftAction" mappingModes="NXO" keys="zL"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.scroll.MotionScrollHalfWidthRightAction" mappingModes="NXO" keys="zH"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.updown.MotionShiftDownAction" mappingModes="INV" keys="«S-Down»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.updown.MotionShiftUpAction" mappingModes="INV" keys="«S-Up»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionShiftRightAction" mappingModes="INV" keys="«S-Right»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.leftright.MotionShiftLeftAction" mappingModes="INV" keys="«S-Left»"/>-->
+<!--    &lt;!&ndash; Visual &ndash;&gt;-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.visual.VisualExitModeAction" mappingModes="X" keys="«Esc»,«C-[»,«C-C»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.visual.VisualToggleCharacterModeAction" mappingModes="NX" keys="v"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.visual.VisualToggleLineModeAction" mappingModes="NX" keys="V"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.visual.VisualToggleBlockModeAction" mappingModes="NX" keys="«C-q»,«C-v»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.visual.VisualSwapEndsAction" mappingModes="X" keys="o"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.visual.VisualSwapEndsBlockAction" mappingModes="X" keys="O"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.visual.VisualSelectPreviousAction" mappingModes="N" keys="gv"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.visual.VisualSwapSelectionsAction" mappingModes="X" keys="gv"/>-->
+
+<!--    &lt;!&ndash; Select&ndash;&gt;-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.select.SelectEnableCharacterModeAction" mappingModes="N" keys="gh"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.select.SelectEnableLineModeAction" mappingModes="N" keys="gH"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.select.SelectEnableBlockModeAction" mappingModes="N" keys="g«C-h»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.select.motion.SelectMotionRightAction" mappingModes="S" keys="«Right»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.select.motion.SelectMotionLeftAction" mappingModes="S" keys="«Left»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.select.SelectToggleVisualMode" mappingModes="V" keys="«C-G»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.select.SelectEnterAction" mappingModes="S" keys="«enter»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.select.SelectEscapeAction" mappingModes="S" keys="«esc»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.select.SelectDeleteAction" mappingModes="S" keys="«BS»,«DEL»"/>-->
+
+<!--    &lt;!&ndash; Insert &ndash;&gt;-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.insert.InsertAfterCursorAction" mappingModes="N" keys="a"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.insert.InsertAfterLineEndAction" mappingModes="N" keys="A"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.insert.InsertAtPreviousInsertAction" mappingModes="N" keys="gi"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.insert.InsertBeforeCursorAction" mappingModes="N" keys="i,«Insert»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.insert.InsertBeforeFirstNonBlankAction" mappingModes="N" keys="I"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.insert.InsertCharacterAboveCursorAction" mappingModes="I" keys="«C-Y»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.insert.InsertCharacterBelowCursorAction" mappingModes="I" keys="«C-E»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.insert.InsertDeleteInsertedTextAction" mappingModes="I" keys="«C-U»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.insert.InsertDeletePreviousWordAction" mappingModes="I" keys="«C-W»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.insert.InsertEnterAction" mappingModes="I" keys="«C-M»,«CR»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.insert.InsertExitModeAction" mappingModes="I" keys="«C-[»,«C-C»,«Esc»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.insert.InsertLineStartAction" mappingModes="N" keys="gI"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.insert.InsertNewLineAboveAction" mappingModes="N" keys="O"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.insert.InsertNewLineBelowAction" mappingModes="N" keys="o"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.insert.InsertPreviousInsertAction" mappingModes="I" keys="«C-A»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.insert.InsertPreviousInsertExitAction" mappingModes="I"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.insert.InsertRegisterAction" mappingModes="I" keys="«C-R»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.insert.InsertInsertAction" mappingModes="I" keys="«Ins»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.insert.InsertSingleCommandAction" mappingModes="I" keys="«C-O»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.insert.VisualBlockInsertAction" mappingModes="X" keys="I"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.insert.VisualBlockAppendAction" mappingModes="X" keys="A"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.insert.InsertCompletedDigraphAction" mappingModes="IC" keys="«C-K»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.insert.InsertCompletedLiteralAction" mappingModes="IC" keys="«C-V»,«C-Q»"/>-->
+
+<!--    &lt;!&ndash; Delete &ndash;&gt;-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.delete.DeleteCharacterAction" mappingModes="N" keys="«DEL»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.delete.DeleteCharacterLeftAction" mappingModes="N" keys="X"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.delete.DeleteCharacterRightAction" mappingModes="N" keys="x"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.delete.DeleteEndOfLineAction" mappingModes="N" keys="D"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.delete.DeleteJoinLinesAction" mappingModes="N" keys="gJ"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.delete.DeleteJoinLinesSpacesAction" mappingModes="N" keys="J"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.delete.DeleteJoinVisualLinesAction" mappingModes="X" keys="gJ"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.delete.DeleteJoinVisualLinesSpacesAction" mappingModes="X" keys="J"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.delete.DeleteMotionAction" mappingModes="N" keys="d"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.delete.DeleteVisualAction" mappingModes="X" keys="d,x,«Del»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.delete.DeleteVisualLinesAction" mappingModes="X" keys="X"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.delete.DeleteVisualLinesEndAction" mappingModes="X" keys="D"/>-->
+
+<!--    &lt;!&ndash; Change &ndash;&gt;-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.ChangeCaseLowerMotionAction" mappingModes="N" keys="gu"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.ChangeCaseLowerVisualAction" mappingModes="X" keys="u"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.ChangeCaseToggleCharacterAction" mappingModes="N" keys="~"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.ChangeCaseToggleMotionAction" mappingModes="N" keys="g~"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.ChangeCaseToggleVisualAction" mappingModes="X" keys="~"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.ChangeCaseUpperMotionAction" mappingModes="N" keys="gU"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.ChangeCaseUpperVisualAction" mappingModes="X" keys="U"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.ChangeCharacterAction" mappingModes="N" keys="r"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.ChangeCharactersAction" mappingModes="N" keys="s"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.ChangeEndOfLineAction" mappingModes="N" keys="C"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.ChangeLineAction" mappingModes="N" keys="S"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.ChangeMotionAction" mappingModes="N" keys="c"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.number.ChangeNumberIncAction" mappingModes="N" keys="«C-A»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.number.ChangeNumberDecAction" mappingModes="N" keys="«C-X»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.number.ChangeVisualNumberIncAction" mappingModes="X" keys="«C-A»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.number.ChangeVisualNumberDecAction" mappingModes="X" keys="«C-X»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.number.ChangeVisualNumberAvalancheIncAction" mappingModes="X" keys="g«C-A»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.number.ChangeVisualNumberAvalancheDecAction" mappingModes="X" keys="g«C-X»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.ChangeReplaceAction" mappingModes="N" keys="R"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.ChangeVisualAction" mappingModes="X" keys="c,s"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.ChangeVisualCharacterAction" mappingModes="X" keys="r"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.ChangeVisualLinesAction" mappingModes="X" keys="R,S"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.ChangeVisualLinesEndAction" mappingModes="X" keys="C"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.FilterMotionAction" mappingModes="N" keys="!"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.FilterVisualLinesAction" mappingModes="X" keys="!"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.AutoIndentLinesVisualAction" mappingModes="X" keys="="/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.ReformatCodeVisualAction" mappingModes="X" keys="gq"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.ReformatCodeMotionAction" mappingModes="N" keys="gq"/>-->
+
+<!--    &lt;!&ndash; Shift &ndash;&gt;-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.shift.AutoIndentMotionAction" mappingModes="N" keys="="/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.shift.ShiftLeftLinesAction" mappingModes="I" keys="«C-D»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.shift.ShiftLeftMotionAction" mappingModes="N" keys="&lt;"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.shift.ShiftLeftVisualAction" mappingModes="X" keys="&lt;"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.shift.ShiftRightLinesAction" mappingModes="I" keys="«C-T»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.shift.ShiftRightMotionAction" mappingModes="N" keys=">"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.shift.ShiftRightVisualAction" mappingModes="X" keys=">"/>-->
+
+<!--    &lt;!&ndash; Copy &ndash;&gt;-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.copy.PutTextAfterCursorAction" mappingModes="N" keys="p"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.copy.PutTextBeforeCursorAction" mappingModes="N" keys="P"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.copy.PutTextAfterCursorNoIndentAction" mappingModes="N" keys="]p"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.copy.PutTextBeforeCursorNoIndentAction" mappingModes="N" keys="[P,]P,[p"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.copy.PutTextAfterCursorActionMoveCursor" mappingModes="N" keys="gp"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.copy.PutTextBeforeCursorActionMoveCursor" mappingModes="N" keys="gP"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.copy.YankLineAction" mappingModes="N" keys="Y"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.copy.YankMotionAction" mappingModes="N" keys="y"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.copy.YankVisualAction" mappingModes="X" keys="y"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.copy.YankVisualLinesAction" mappingModes="X" keys="Y"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.copy.PutVisualTextBeforeCursorAction" mappingModes="X" keys="P"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.copy.PutVisualTextAfterCursorAction" mappingModes="X" keys="p"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.copy.PutVisualTextBeforeCursorNoIndentAction" mappingModes="X" keys="]P,[P"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.copy.PutVisualTextAfterCursorNoIndentAction" mappingModes="X" keys="[p,]p"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.copy.PutVisualTextBeforeCursorMoveCursorAction" mappingModes="X" keys="gP"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.copy.PutVisualTextAfterCursorMoveCursorAction" mappingModes="X" keys="gp"/>-->
+
+<!--    &lt;!&ndash; File &ndash;&gt;-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.file.FileSaveCloseAction" mappingModes="N" keys="ZQ,ZZ"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.file.FilePreviousAction" mappingModes="N"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.file.FileGetAsciiAction" mappingModes="N" keys="ga"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.file.FileGetHexAction" mappingModes="N" keys="g8"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.file.FileGetFileInfoAction" mappingModes="N" keys="«C-G»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.file.FileGetLocationInfoAction" mappingModes="NX" keys="g«C-G»"/>-->
+
+<!--    &lt;!&ndash; Window &ndash;&gt;-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.window.VerticalSplitAction" mappingModes="N" keys="«C-W»v,«C-W»«C-V»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.window.HorizontalSplitAction" mappingModes="N" keys="«C-W»s,«C-W»S,«C-W»«C-S»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.window.CloseWindowAction" mappingModes="N" keys="«C-W»c"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.window.WindowOnlyAction" mappingModes="N" keys="«C-W»o,«C-W»«C-O»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.window.WindowNextAction" mappingModes="N" keys="«C-W»w,«C-W»«C-W»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.window.WindowPrevAction" mappingModes="N" keys="«C-W»W"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.window.WindowLeftAction" mappingModes="N" keys="«C-W»h,«C-W»«C-H»,«C-W»«Left»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.window.WindowRightAction" mappingModes="N" keys="«C-W»l,«C-W»«C-L»,«C-W»«Right»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.window.WindowUpAction" mappingModes="N" keys="«C-W»k,«C-W»«C-K»,«C-W»«Up»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.window.WindowDownAction" mappingModes="N" keys="«C-W»j,«C-W»«C-J»,«C-W»«Down»"/>-->
+
+<!--    &lt;!&ndash; Tabs &ndash;&gt;-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.window.tabs.NextTabAction" mappingModes="NXO" keys="gt"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.window.tabs.PreviousTabAction" mappingModes="NXO" keys="gT"/>-->
+
+<!--    &lt;!&ndash; Search &ndash;&gt;-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.search.SearchEntryFwdAction" mappingModes="NXO" keys="/"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.search.SearchEntryRevAction" mappingModes="NXO" keys="?"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.search.SearchAgainNextAction" mappingModes="NXO" keys="n"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.search.SearchAgainPreviousAction" mappingModes="NXO" keys="N"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.search.SearchWholeWordForwardAction" mappingModes="NXO" keys="*"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.search.SearchWholeWordBackwardAction" mappingModes="NXO" keys="#"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.search.SearchWordForwardAction" mappingModes="NXO" keys="g*"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.search.SearchWordBackwardAction" mappingModes="NXO" keys="g#"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.search.GotoDeclarationAction" mappingModes="NX" keys="gD,gd,«C-]»"/>-->
+
+<!--    &lt;!&ndash; Macro &ndash;&gt;-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.macro.ToggleRecordingAction" mappingModes="NX" keys="q"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.macro.PlaybackRegisterAction" mappingModes="N" keys="@"/>-->
+
+<!--    &lt;!&ndash; Command Line &ndash;&gt;-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.ex.ProcessExEntryAction" mappingModes="C"/>-->
+
+<!--    &lt;!&ndash; Other &ndash;&gt;-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.ChangeLastSearchReplaceAction" mappingModes="N" keys="&amp;"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.change.ChangeLastGlobalSearchReplaceAction" mappingModes="N" keys="g&amp;"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.RepeatChangeAction" mappingModes="N" keys="."/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.ExEntryAction" mappingModes="NXO" keys=":"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.ResetModeAction" mappingModes="ALL" keys="«C-\»«C-N»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.RedoAction" mappingModes="N" keys="«C-R»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.UndoAction" mappingModes="N"/>-->
+
+<!--    &lt;!&ndash; Keys &ndash;&gt;-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.OperatorAction" mappingModes="N" keys="g@"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.change.VisualOperatorAction" mappingModes="X" keys="g@"/>-->
+
+<!--    &lt;!&ndash; Visual Selection of last Search Pattern (gn) &ndash;&gt;-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.gn.VisualSelectNextSearch" mappingModes="NX" keys="gn"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.gn.VisualSelectPreviousSearch" mappingModes="NX" keys="gN"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.gn.GnNextTextObject" mappingModes="O" keys="gn"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.gn.GnPreviousTextObject" mappingModes="O" keys="gN"/>-->
+
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.scroll.CtrlDownAction" mappingModes="N" keys="«C-Down»"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.motion.scroll.CtrlUpAction" mappingModes="N" keys="«C-Up»"/>-->
+
+<!--    &lt;!&ndash; Folds &ndash;&gt;-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.fold.FimCollapseAllRegions" mappingModes="NX" keys="zM"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.fold.FimCollapseRegion" mappingModes="NX" keys="zc"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.fold.FimCollapseRegionRecursively" mappingModes="NX" keys="zC"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.fold.FimExpandAllRegions" mappingModes="NX" keys="zR"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.fold.FimExpandRegion" mappingModes="NX" keys="zo"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.fold.FimExpandRegionRecursively" mappingModes="NX" keys="zO"/>-->
+
+<!--    &lt;!&ndash; Editor Actions &ndash;&gt;-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.editor.FimEditorBackSpace" mappingModes="I"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.editor.FimEditorDelete" mappingModes="I"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.editor.FimEditorDown" mappingModes="I"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.editor.FimEditorTab" mappingModes="I"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.editor.FimEditorUp" mappingModes="I"/>-->
+<!--    <fimAction implementation="com.flop.idea.fim.action.editor.FimQuickJavaDoc" mappingModes="N" keys="K"/>-->
+  </extensions>
+</idea-plugin>
