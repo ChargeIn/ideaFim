@@ -37,7 +37,7 @@ object FunctionStorage : FimscriptFunctionService {
 
   private val globalFunctions: MutableMap<String, FunctionDeclaration> = mutableMapOf()
 
-  private val extensionPoint = ExtensionPointName.create<FunctionBeanClass>("IdeaVIM.fimLibraryFunction")
+  private val extensionPoint = ExtensionPointName.create<FunctionBeanClass>("IdeaFIM.fimLibraryFunction")
   private val builtInFunctions: MutableMap<String, FunctionHandler> = mutableMapOf()
 
   override fun deleteFunction(name: String, scope: Scope?, fimContext: FimLContext) {

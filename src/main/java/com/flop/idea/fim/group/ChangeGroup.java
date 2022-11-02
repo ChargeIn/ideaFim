@@ -64,24 +64,10 @@ import com.intellij.psi.util.PsiUtilBase;
 import com.intellij.util.containers.ContainerUtil;
 import com.flop.idea.fim.EventFacade;
 import com.flop.idea.fim.FimPlugin;
-import com.flop.idea.fim.api.*;
-import com.flop.idea.fim.command.*;
-import com.flop.idea.fim.common.IndentConfig;
-import com.flop.idea.fim.common.TextRange;
-import com.flop.idea.fim.ex.ranges.LineRange;
-import com.flop.idea.fim.group.visual.FimSelection;
 import com.flop.idea.fim.group.visual.VisualModeHelperKt;
 import com.flop.idea.fim.helper.*;
-import com.flop.idea.fim.icons.FimIcons;
 import com.flop.idea.fim.key.KeyHandlerKeeper;
-import com.flop.idea.fim.listener.FimInsertListener;
-import com.flop.idea.fim.newapi.IjExecutionContext;
 import com.flop.idea.fim.newapi.IjExecutionContextKt;
-import com.flop.idea.fim.newapi.IjFimCaret;
-import com.flop.idea.fim.newapi.IjFimEditor;
-import com.flop.idea.fim.options.OptionConstants;
-import com.flop.idea.fim.options.OptionScope;
-import com.flop.idea.fim.fimscript.model.datatypes.FimString;
 import kotlin.Pair;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
@@ -95,7 +81,6 @@ import java.math.BigInteger;
 import java.util.*;
 
 import static com.flop.idea.fim.api.FimInjectorKt.injector;
-import static com.flop.idea.fim.mark.FimMarkConstants.MARK_CHANGE_POS;
 
 /**
  * Provides all the insert/replace related functionality
@@ -825,7 +810,7 @@ public class ChangeGroup extends FimChangeGroupBase {
         lastShownTime = currentTime;
         ApplicationManager.getApplication().invokeLater(() -> {
           final Balloon balloon = JBPopupFactory.getInstance()
-            .createHtmlTextBalloonBuilder("Wow, nice fim skills!", FimIcons.IDEAVIM,
+            .createHtmlTextBalloonBuilder("Wow, nice fim skills!", FimIcons.IDEAFIM,
                                           MessageType.INFO.getTitleForeground(), MessageType.INFO.getPopupBackground(),
                                           null).createBalloon();
           balloon.show(JBPopupFactory.getInstance().guessBestPopupLocation(((IjFimEditor)editor).getEditor()),

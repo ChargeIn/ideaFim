@@ -20,7 +20,6 @@ package org.jetbrains.plugins.ideafim.action.copy
 
 import com.intellij.notification.ActionCenter
 import com.intellij.notification.EventLog
-import com.flop.idea.fim.FimPlugin
 import com.flop.idea.fim.api.injector
 import com.flop.idea.fim.command.SelectionType
 import com.flop.idea.fim.group.NotificationService
@@ -46,7 +45,7 @@ class IdeaPutNotificationsTest : FimOptionTestCase(OptionConstants.clipboardName
 
     val notification = ActionCenter.getNotifications(myFixture.project, true).last()
     try {
-      assertEquals(NotificationService.IDEAVIM_NOTIFICATION_TITLE, notification.title)
+      assertEquals(NotificationService.IDEAFIM_NOTIFICATION_TITLE, notification.title)
       assertTrue(OptionConstants.clipboard_ideaput in notification.content)
       assertEquals(2, notification.actions.size)
     } finally {

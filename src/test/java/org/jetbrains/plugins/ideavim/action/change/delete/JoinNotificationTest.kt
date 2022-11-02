@@ -22,7 +22,6 @@ package org.jetbrains.plugins.ideafim.action.change.delete
 
 import com.intellij.notification.ActionCenter
 import com.intellij.notification.EventLog
-import com.flop.idea.fim.FimPlugin
 import com.flop.idea.fim.api.injector
 import com.flop.idea.fim.group.NotificationService
 import com.flop.idea.fim.fimscript.services.IjFimOptionService
@@ -44,7 +43,7 @@ class JoinNotificationTest : FimOptionTestCase(IjFimOptionService.ideajoinName) 
 
     val notification = ActionCenter.getNotifications(myFixture.project, true).last()
     try {
-      assertEquals(NotificationService.IDEAVIM_NOTIFICATION_TITLE, notification.title)
+      assertEquals(NotificationService.IDEAFIM_NOTIFICATION_TITLE, notification.title)
       assertTrue(IjFimOptionService.ideajoinName in notification.content)
       assertEquals(3, notification.actions.size)
     } finally {

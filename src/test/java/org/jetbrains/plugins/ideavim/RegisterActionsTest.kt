@@ -18,8 +18,7 @@
 
 package org.jetbrains.plugins.ideafim
 
-import com.flop.idea.fim.RegisterActions.VIM_ACTIONS_EP
-import com.flop.idea.fim.FimPlugin
+import com.flop.idea.fim.RegisterActions.FIM_ACTIONS_EP
 import com.flop.idea.fim.command.MappingMode
 import com.flop.idea.fim.command.FimStateMachine
 import com.flop.idea.fim.handler.ActionBeanClass
@@ -78,16 +77,16 @@ class RegisterActionsTest : FimTestCase() {
     val after = "I f${c}ound it in a legendary land"
     var motionRightAction: ActionBeanClass? = null
     doTest("l", before, after, FimStateMachine.Mode.COMMAND, FimStateMachine.SubMode.NONE) {
-      motionRightAction = VIM_ACTIONS_EP.extensions().filter { it.actionId == "FimPreviousTabAction" }.findFirst().get()
+      motionRightAction = FIM_ACTIONS_EP.extensions().filter { it.actionId == "FimPreviousTabAction" }.findFirst().get()
 
       assertNotNull(getCommandNode())
 
       @Suppress("DEPRECATION")
-      VIM_ACTIONS_EP.getPoint(null).unregisterExtension(motionRightAction!!)
+      FIM_ACTIONS_EP.getPoint(null).unregisterExtension(motionRightAction!!)
       assertNull(getCommandNode())
     }
     @Suppress("DEPRECATION")
-    VIM_ACTIONS_EP.getPoint(null).registerExtension(motionRightAction!!)
+    FIM_ACTIONS_EP.getPoint(null).registerExtension(motionRightAction!!)
     TestCase.assertNotNull(getCommandNode())
   }
 

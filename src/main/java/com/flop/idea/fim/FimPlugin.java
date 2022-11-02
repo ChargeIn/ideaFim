@@ -49,7 +49,6 @@ import com.intellij.openapi.util.Disposer;
 import com.intellij.openapi.util.SystemInfo;
 import com.flop.idea.fim.api.FimInjectorKt;
 import com.flop.idea.fim.api.FimKeyGroup;
-import com.flop.idea.fim.group.*;
 import com.flop.idea.fim.fimscript.services.FunctionStorage;
 import com.flop.idea.fim.fimscript.services.IjFimOptionService;
 import com.flop.idea.fim.fimscript.services.OptionService;
@@ -58,8 +57,6 @@ import org.jdom.Element;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
-import static com.flop.idea.fim.fimscript.services.FimRcService.executeIdeaFimRc;
 
 /**
  * This plugin attempts to emulate the key binding and general functionality of Fim and gFim. See the supplied
@@ -76,7 +73,7 @@ public class FimPlugin implements PersistentStateComponent<Element>, Disposable 
     FimInjectorKt.setInjector(new IjFimInjector());
   }
 
-  private static final String IDEAVIM_PLUGIN_ID = "IdeaVIM";
+  private static final String IDEAFIM_PLUGIN_ID = "IdeaFIM";
   public static final int STATE_VERSION = 7;
 
   private int previousStateVersion = 0;
@@ -251,7 +248,7 @@ public class FimPlugin implements PersistentStateComponent<Element>, Disposable 
   }
 
   public static @NotNull PluginId getPluginId() {
-    return PluginId.getId(IDEAVIM_PLUGIN_ID);
+    return PluginId.getId(IDEAFIM_PLUGIN_ID);
   }
 
   public static @NotNull String getVersion() {

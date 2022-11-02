@@ -25,10 +25,8 @@ import org.jetbrains.annotations.NotNull;
 import javax.swing.*;
 
 public final class FimIcons {
-  public static final @NotNull Icon IDEAVIM = load("/icons/ideafim.svg");
-  public static final @NotNull Icon IDEAVIM_DISABLED = load("/icons/ideafim_disabled.svg");
-  public static final @NotNull Icon TWITTER = load("/icons/twitter.svg");
-  public static final @NotNull Icon YOUTRACK = load("/icons/youtrack.svg");
+  public static final @NotNull Icon IDEAFIM = load("/icons/ideafim.svg");
+  public static final @NotNull Icon IDEAFIM_DISABLED = load("/icons/ideafim_disabled.svg");
 
   private static @NotNull Icon load(@NotNull @NonNls String path) {
     return IconManager.getInstance().getIcon(path, FimIcons.class);

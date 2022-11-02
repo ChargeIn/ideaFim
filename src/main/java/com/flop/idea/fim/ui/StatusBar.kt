@@ -18,7 +18,6 @@
 
 package com.flop.idea.fim.ui
 
-import com.intellij.icons.AllIcons
 import com.intellij.ide.BrowserUtil
 import com.intellij.ide.DataManager
 import com.intellij.openapi.actionSystem.ActionManager
@@ -42,11 +41,8 @@ import com.intellij.openapi.wm.WindowManager
 import com.intellij.openapi.wm.impl.status.widget.StatusBarWidgetsManager
 import com.intellij.ui.awt.RelativePoint
 import com.intellij.util.Consumer
-import com.intellij.util.ui.LafIconLookup
-import com.flop.idea.fim.FimPlugin
 import com.flop.idea.fim.group.NotificationService
 import com.flop.idea.fim.helper.MessageHelper
-import com.flop.idea.fim.icons.FimIcons
 import com.flop.idea.fim.options.OptionChangeListener
 import com.flop.idea.fim.options.OptionScope
 import com.flop.idea.fim.fimscript.model.datatypes.FimDataType
@@ -132,8 +128,8 @@ class FimStatusBar : StatusBarWidget, StatusBarWidget.IconPresentation {
 
   override fun getIcon(): Icon {
     val ideaStatusIconValue = (com.flop.idea.fim.FimPlugin.getOptionService().getOptionValue(OptionScope.GLOBAL, IjFimOptionService.ideastatusiconName) as FimString).value
-    if (ideaStatusIconValue == IjFimOptionService.ideastatusicon_gray) return com.flop.idea.fim.icons.FimIcons.IDEAVIM_DISABLED
-    return if (com.flop.idea.fim.FimPlugin.isEnabled()) com.flop.idea.fim.icons.FimIcons.IDEAVIM else com.flop.idea.fim.icons.FimIcons.IDEAVIM_DISABLED
+    if (ideaStatusIconValue == IjFimOptionService.ideastatusicon_gray) return com.flop.idea.fim.icons.FimIcons.IDEAFIM_DISABLED
+    return if (com.flop.idea.fim.FimPlugin.isEnabled()) com.flop.idea.fim.icons.FimIcons.IDEAFIM else com.flop.idea.fim.icons.FimIcons.IDEAFIM_DISABLED
   }
 
   override fun getClickConsumer() = Consumer<MouseEvent> { event ->
@@ -186,45 +182,6 @@ private object FimActionsPopup {
     actionGroup.add(NotificationService.OpenIdeaFimRcAction(null))
     actionGroup.add(ShortcutConflictsSettings)
     actionGroup.addSeparator()
-
-    val eapGroup = DefaultActionGroup(MessageHelper.message("action.eap.choice.active.text"), true)
-    if (JoinEap.eapActive()) {
-      eapGroup.templatePresentation.icon = LafIconLookup.getIcon("checkmark")
-    }
-    eapGroup.add(JoinEap)
-    eapGroup.add(
-      HelpLink(
-        MessageHelper.message("action.about.eap.text"),
-        "https://github.com/JetBrains/ideafim#get-early-access",
-        null
-      )
-    )
-    actionGroup.add(eapGroup)
-
-    val helpGroup = DefaultActionGroup(MessageHelper.message("action.contacts.help.text"), true)
-    helpGroup.add(
-      HelpLink(
-        MessageHelper.message("action.contact.on.twitter.text"),
-        "https://twitter.com/ideafim",
-        com.flop.idea.fim.icons.FimIcons.TWITTER
-      )
-    )
-    helpGroup.add(
-      HelpLink(
-        MessageHelper.message("action.create.issue.text"),
-        "https://youtrack.jetbrains.com/issues/VIM",
-        com.flop.idea.fim.icons.FimIcons.YOUTRACK
-      )
-    )
-    helpGroup.add(
-      HelpLink(
-        MessageHelper.message("action.contribute.on.github.text"),
-        "https://github.com/JetBrains/ideafim",
-        AllIcons.Vcs.Vendors.Github
-      )
-    )
-    actionGroup.add(helpGroup)
-
     return actionGroup
   }
 }

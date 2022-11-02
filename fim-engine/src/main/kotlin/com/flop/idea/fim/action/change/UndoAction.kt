@@ -29,8 +29,8 @@ import javax.swing.KeyStroke
 
 class UndoAction : FimActionHandler.SingleExecution(), ComplicatedKeysAction {
   override val keyStrokesSet: Set<List<KeyStroke>> = setOf(
-    injector.parser.parseKeys("u"),
-    listOf(KeyStroke.getKeyStroke(KeyEvent.VK_UNDO, 0))
+    injector.parser.parseKeys("z"),
+      listOf(KeyStroke.getKeyStroke(KeyEvent.VK_UNDO, 0))
   )
 
   override val type: Command.Type = Command.Type.OTHER_SELF_SYNCHRONIZED

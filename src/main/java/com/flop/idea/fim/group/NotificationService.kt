@@ -38,7 +38,6 @@ import com.intellij.openapi.project.DumbAwareAction
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.Messages
 import com.intellij.openapi.util.SystemInfo
-import com.flop.idea.fim.FimPlugin
 import com.flop.idea.fim.helper.MessageHelper
 import com.flop.idea.fim.key.ShortcutOwner
 import com.flop.idea.fim.key.ShortcutOwnerInfo
@@ -65,7 +64,7 @@ class NotificationService(private val project: Project?) {
 
   fun notifyAboutIdeaPut() {
     val notification = Notification(
-      IDEAVIM_NOTIFICATION_ID, IDEAVIM_NOTIFICATION_TITLE,
+      IDEAFIM_NOTIFICATION_ID, IDEAFIM_NOTIFICATION_TITLE,
       """Add <code>ideaput</code> to <code>clipboard</code> option to perform a put via the IDE<br/><b><code>set clipboard+=ideaput</code></b>""",
       NotificationType.INFORMATION
     )
@@ -85,7 +84,7 @@ class NotificationService(private val project: Project?) {
 
   fun notifyAboutIdeaJoin() {
     val notification = Notification(
-      IDEAVIM_NOTIFICATION_ID, IDEAVIM_NOTIFICATION_TITLE,
+      IDEAFIM_NOTIFICATION_ID, IDEAFIM_NOTIFICATION_TITLE,
       """Put <b><code>set ideajoin</code></b> into your <code>~/.ideafimrc</code> to perform a join via the IDE""",
       NotificationType.INFORMATION
     )
@@ -108,13 +107,13 @@ class NotificationService(private val project: Project?) {
     "Do you want to enable repeating keys in macOS on press and hold?\n\n" +
       "(You can do it manually by running 'defaults write -g " +
       "ApplePressAndHoldEnabled 0' in the console).",
-    IDEAVIM_NOTIFICATION_TITLE,
+    IDEAFIM_NOTIFICATION_TITLE,
     Messages.getQuestionIcon()
   )
 
   fun noFimrcAsDefault() {
-    val notification = IDEAVIM_STICKY_GROUP.createNotification(
-      IDEAVIM_NOTIFICATION_TITLE,
+    val notification = IDEAFIM_STICKY_GROUP.createNotification(
+      IDEAFIM_NOTIFICATION_TITLE,
       "The ~/.fimrc file is no longer read by default, use ~/.ideafimrc instead. You can read it from your " +
         "~/.ideafimrc using this command:<br/><br/>" +
         "<code>source ~/.fimrc</code>",
@@ -136,8 +135,8 @@ class NotificationService(private val project: Project?) {
 
     conflicts[keyStroke] = ShortcutOwnerInfo.allFim
     val notification = Notification(
-      IDEAVIM_NOTIFICATION_ID,
-      IDEAVIM_NOTIFICATION_TITLE,
+      IDEAFIM_NOTIFICATION_ID,
+      IDEAFIM_NOTIFICATION_TITLE,
       message,
       NotificationType.INFORMATION
     )
@@ -158,7 +157,7 @@ class NotificationService(private val project: Project?) {
 
   fun notifySubscribedToEap() {
     Notification(
-      IDEAVIM_NOTIFICATION_ID, IDEAVIM_NOTIFICATION_TITLE,
+      IDEAFIM_NOTIFICATION_ID, IDEAFIM_NOTIFICATION_TITLE,
       """You are successfully subscribed to IdeaFim EAP releases.""",
       NotificationType.INFORMATION
     ).notify(project)
@@ -166,7 +165,7 @@ class NotificationService(private val project: Project?) {
 
   fun notifyEapFinished() {
     Notification(
-      IDEAVIM_NOTIFICATION_ID, IDEAVIM_NOTIFICATION_TITLE,
+      IDEAFIM_NOTIFICATION_ID, IDEAFIM_NOTIFICATION_TITLE,
       """You have finished the Early Access Program. Please reinstall IdeaFim to get the stable version.""",
       NotificationType.INFORMATION
     ).notify(project)
@@ -185,7 +184,7 @@ class NotificationService(private val project: Project?) {
       notification?.expire()
 
       val content = if (id != null) "Action id: $id" else NO_ID
-      Notification(IDEAVIM_NOTIFICATION_ID, IDEAVIM_NOTIFICATION_TITLE, content, NotificationType.INFORMATION).let {
+      Notification(IDEAFIM_NOTIFICATION_ID, IDEAFIM_NOTIFICATION_TITLE, content, NotificationType.INFORMATION).let {
         notification = it
         it.whenExpired { notification = null }
         it.setContent(it.content + "<br><br><small>Use ${ActionCenter.getToolwindowName()} to see previous ids</small>")
@@ -211,7 +210,7 @@ class NotificationService(private val project: Project?) {
         notification?.expire()
 
         val content = if (id == null) "No action id" else "Action id copied: $id"
-        Notification(IDEAVIM_NOTIFICATION_ID, IDEAVIM_NOTIFICATION_TITLE, content, NotificationType.INFORMATION).let {
+        Notification(IDEAFIM_NOTIFICATION_ID, IDEAFIM_NOTIFICATION_TITLE, content, NotificationType.INFORMATION).let {
           notification = it
           it.whenExpired { notification = null }
           it.addAction(StopTracking())
@@ -280,8 +279,8 @@ class NotificationService(private val project: Project?) {
           ideaFimRc.appendText(appendableText)
           notification.expire()
           val successNotification = Notification(
-            IDEAVIM_NOTIFICATION_ID,
-            IDEAVIM_NOTIFICATION_TITLE,
+            IDEAFIM_NOTIFICATION_ID,
+            IDEAFIM_NOTIFICATION_TITLE,
             "<code>$optionName</code> is enabled",
             NotificationType.INFORMATION
           )
@@ -305,15 +304,15 @@ class NotificationService(private val project: Project?) {
   }
 
   companion object {
-    val IDEAVIM_STICKY_GROUP: NotificationGroup =
+    val IDEAFIM_STICKY_GROUP: NotificationGroup =
       NotificationGroupManager.getInstance().getNotificationGroup("ideafim-sticky")
-    const val IDEAVIM_NOTIFICATION_ID = "ideafim"
-    const val IDEAVIM_NOTIFICATION_TITLE = "IdeaFim"
+    const val IDEAFIM_NOTIFICATION_ID = "ideafim"
+    const val IDEAFIM_NOTIFICATION_TITLE = "IdeaFim"
     const val ideajoinExamplesUrl = "https://jb.gg/f9zji9"
 
     private fun createIdeaFimRcManually(message: String, project: Project?) {
       val notification =
-        Notification(IDEAVIM_NOTIFICATION_ID, IDEAVIM_NOTIFICATION_TITLE, message, NotificationType.WARNING)
+        Notification(IDEAFIM_NOTIFICATION_ID, IDEAFIM_NOTIFICATION_TITLE, message, NotificationType.WARNING)
       var actionName =
         if (SystemInfo.isMac) "Reveal Home in Finder" else "Show Home in " + RevealFileAction.getFileManagerName()
       if (!File(System.getProperty("user.home")).exists()) {

@@ -28,7 +28,7 @@ import org.jetbrains.annotations.NotNull;
  * @author vlan
  */
 public interface FimExtension {
-  @NotNull ExtensionPointName<ExtensionBeanClass> EP_NAME = ExtensionPointName.create("IdeaVIM.fimExtension");
+  @NotNull ExtensionPointName<ExtensionBeanClass> EP_NAME = ExtensionPointName.create("IdeaFIM.fimExtension");
 
   @FimNlsSafe
   @NotNull String getName();

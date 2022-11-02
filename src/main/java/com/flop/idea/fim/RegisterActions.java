@@ -23,11 +23,6 @@ import com.flop.idea.fim.handler.EditorActionHandlerBase;
 import com.flop.idea.fim.key.MappingOwner;
 import com.flop.idea.fim.newapi.IjFimActionsInitiator;
 import com.intellij.openapi.extensions.ExtensionPointName;
-import com.flop.idea.fim.group.KeyGroup;
-import com.flop.idea.fim.handler.ActionBeanClass;
-import com.flop.idea.fim.handler.EditorActionHandlerBase;
-import com.flop.idea.fim.key.MappingOwner;
-import com.flop.idea.fim.newapi.IjFimActionsInitiator;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -36,8 +31,8 @@ import java.awt.event.KeyEvent;
 
 public class RegisterActions {
 
-  public static final ExtensionPointName<ActionBeanClass> VIM_ACTIONS_EP =
-    ExtensionPointName.create("IdeaVIM.fimAction");
+  public static final ExtensionPointName<ActionBeanClass> FIM_ACTIONS_EP =
+    ExtensionPointName.create("IdeaFIM.fimAction");
 
   /**
    * Register all the key/action mappings for the plugin.
@@ -51,14 +46,14 @@ public class RegisterActions {
   private static void registerEpListener() {
     // IdeaFim doesn't support contribution to VIM_ACTIONS_EP extension point, so technically we can skip this update,
     //   but let's support dynamic plugins in a more classic way and reload actions on every EP change.
-    VIM_ACTIONS_EP.addChangeListener(() -> {
+    FIM_ACTIONS_EP.addChangeListener(() -> {
       unregisterActions();
       registerActions();
     }, FimPlugin.getInstance());
   }
 
   public static @Nullable EditorActionHandlerBase findAction(@NotNull String id) {
-    return VIM_ACTIONS_EP.getExtensionList().stream().filter(fimActionBean -> fimActionBean.getActionId().equals(id)).findFirst()
+    return FIM_ACTIONS_EP.extensions().filter(fimActionBean -> fimActionBean.getActionId().equals(id)).findFirst()
       .map(ActionBeanClass::getInstance).orElse(null);
   }
 
@@ -77,7 +72,7 @@ public class RegisterActions {
 
   private static void registerFimCommandActions() {
     KeyGroup parser = FimPlugin.getKey();
-    VIM_ACTIONS_EP.getExtensionList().stream().map(IjFimActionsInitiator::new).forEach(parser::registerCommandAction);
+    FIM_ACTIONS_EP.extensions().map(IjFimActionsInitiator::new).forEach(parser::registerCommandAction);
   }
 
   private static void registerEmptyShortcuts() {

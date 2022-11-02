@@ -18,7 +18,7 @@
 
 package org.jetbrains.plugins.ideafim.helper
 
-import com.flop.idea.fim.RegisterActions.VIM_ACTIONS_EP
+import com.flop.idea.fim.RegisterActions.FIM_ACTIONS_EP
 import com.flop.idea.fim.handler.EditorActionHandlerBase
 import org.jetbrains.plugins.ideafim.FimTestCase
 import java.io.File
@@ -44,6 +44,6 @@ class InfoFileTest : FimTestCase() {
   }
 
   private inline fun forEachAction(supply: (action: EditorActionHandlerBase) -> Unit) {
-    VIM_ACTIONS_EP.extensions.map { it.instance }.forEach { supply(it) }
+    FIM_ACTIONS_EP.extensions.map { it.instance }.forEach { supply(it) }
   }
 }

@@ -34,7 +34,6 @@ import com.intellij.openapi.util.io.FileUtil
 import com.flop.idea.fim.api.FimrcFileState
 import com.flop.idea.fim.api.injector
 import com.flop.idea.fim.helper.MessageHelper
-import com.flop.idea.fim.icons.FimIcons
 import com.flop.idea.fim.key.MappingOwner
 import com.flop.idea.fim.troubleshooting.Troubleshooter
 import com.flop.idea.fim.ui.ReloadFloatingToolbarActionGroup.Companion.ACTION_GROUP
@@ -137,7 +136,7 @@ class ReloadFimRc : DumbAwareAction() {
 
     // XXX: Actually, it worth to add e.presentation.description, but it doesn't work because of some reason
     val sameDoc = FimRcFileState.equalTo(editor.document)
-    e.presentation.icon = if (sameDoc) com.flop.idea.fim.icons.FimIcons.IDEAVIM else AllIcons.Actions.BuildLoadChanges
+    e.presentation.icon = if (sameDoc) com.flop.idea.fim.icons.FimIcons.IDEAFIM else AllIcons.Actions.BuildLoadChanges
     e.presentation.text = if (sameDoc) MessageHelper.message("action.no.changes.text")
     else MessageHelper.message("action.reload.text")
 
